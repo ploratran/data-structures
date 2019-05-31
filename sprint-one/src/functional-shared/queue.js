@@ -13,18 +13,20 @@ var Queue = function() {
   //@storage: an empty object that hold keys : values
   someInstance.storage = {};
 
-  extend(someInstance, queueMethods);
+  //use _.extend
+  _.extend(someInstance, queueMethods);
 
   return someInstance;
 };
 
 //helper function:
 //properties are copied over using the version of extend
-function extend(obj1, obj2){
-  for(let key in obj2){
-    obj1[key] = obj2[key];
-  }
-};
+// function extend(obj1, obj2){
+//   for(let key in obj2){
+//     obj1[key] = obj2[key];
+//   }
+// };
+
 
 var queueMethods = {
   enqueue: function(val){

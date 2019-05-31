@@ -4,15 +4,12 @@ var Stack = function() {
 
   //generate object that holds delegate relationship
   var someInstance = Object.create(stackMethods);
-
+  //instantiate properties: @storage, @stackSize, @index
   someInstance.storage = {};
   //define size of stack. If size is 0 -> 0, if push, size++, if pop, size--
   someInstance.stackSize = 0;
   //act like a key of each value when adding to the stack
   someInstance.index = 0;
-  //console.log(someInstance.stackSize)
-  // console.log(someInstance)
-  // console.log(stackMethods)
   return someInstance;
 };
 

@@ -27,7 +27,6 @@ var Queue = function() {
 //   }
 // };
 
-
 var queueMethods = {
   enqueue: function(val){
     this.storage[this.index] = val;

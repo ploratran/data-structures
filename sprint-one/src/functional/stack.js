@@ -6,7 +6,6 @@ var Stack = function() {
   var stackSize = 0;
   //act like a key of each value when adding to the stack
   var index = 0;
-  //var firstIndex = 0;
 
   // Implement the methods below
   someInstance.push = function(value) {
@@ -23,7 +22,6 @@ var Stack = function() {
       stackSize--;
       return storage[index];
     }
-
     //console.log(index  + ' ' + storage[index]);
   };
 

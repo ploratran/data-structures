@@ -2,7 +2,6 @@ var LinkedList = function() {
   var list = {};
   list.head = null;
   list.tail = null;
-  //console.log(list);
 
   //takes a value and adds it to the end of the list
   /*should designate a new tail when new nodes are added*/
@@ -29,8 +28,7 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    /* @output: return a value */
-    /*
+    /* @output: return a value
     head is point to the first node,
     when a node is deleted, head should point to the next node
     !!!! node is not delete (in linked-list) but the head points to a different node
@@ -42,10 +40,34 @@ var LinkedList = function() {
     return temp;
   };
 
-  //returns boolean reflecting whether or not the passed-in value is in the linked list
   list.contains = function(target) {
-  };
+    /*
+    @output: a boolean
+    make a variable currentNode that hold the current node the head is pointing at
+    while "true" (currentNode is equal to the current head):
+      currentNode's value is equal to the current head's value
+      check if currentNode's value == target:
+      if yes:
+        -> return true
+      if currentNode's value is NOT equal to target:
+        -> return false
+      then keep looking at the next node:
+        ->currentNode.next will point to the next node to access next node's value and compare
+    */
+    var currentNode = list.head;
 
+    while(true){
+      if(currentNode.value === target){
+        console.log('current node: ');
+        console.log(currentNode);
+        console.log('next node: ');
+        console.log(currentNode.next);
+        return true;
+      }else{
+        return false;
+      }
+    }
+  };
   return list;
 };
 

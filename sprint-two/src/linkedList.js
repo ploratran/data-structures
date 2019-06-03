@@ -54,17 +54,16 @@ var LinkedList = function() {
       then keep looking at the next node:
         ->currentNode.next will point to the next node to access next node's value and compare
     */
-    var currentNode = list.head;
+    var currentNode = list.head; //assume head is currently an empty node of {null : null}
 
-    while(true){
-      if(currentNode.value === target){
-        console.log('current node: ');
-        console.log(currentNode);
-        console.log('next node: ');
-        console.log(currentNode.next);
-        return true;
-      }else{
-        return false;
+    for (var i = 0; i < Infinity; i++) {
+
+      if (currentNode.value === target) {
+        return true
+      } else if (currentNode.next === null) {
+        return false
+      } else {
+        currentNode = currentNode.next
       }
     }
   };
@@ -82,4 +81,5 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ --> O(n)
  */

@@ -36,23 +36,3 @@ stackMethods.size = function() {
 };
 
 
-
-var stackMethods = {
-  push: function(val){
-    //console.log(this.storage);
-    this.storage[this.index] = val;
-    this.index++;
-    this.stackSize++;
-  },
-  pop: function(){
-    if(this.stackSize > 0){
-      delete this.storage[this.index];
-      this.index--;
-      this.stackSize--;
-      return this.storage[this.index];
-    }
-  },
-  size: function(){
-    return this.stackSize;
-  }
-};

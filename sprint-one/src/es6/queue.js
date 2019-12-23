@@ -3,5 +3,4 @@ class Queue {
   // but try not not reference your old code in writing the new style.
   constructor() {
   }
-
 }

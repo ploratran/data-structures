@@ -35,4 +35,3 @@ stackMethods.pop = function() {
 stackMethods.size = function() {
   return this.stackSize;
 };
-

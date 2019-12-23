@@ -1,6 +1,8 @@
 class Stack {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
+
+  ////declare class method named constructor with properties @stackSize, @index, @storage
   constructor() {
     // define properties:
     this.storage = {};
@@ -26,7 +28,6 @@ class Stack {
   size() {
     return this.stackSize;
   }
-
 }
 
 // instantiate new Stack obj:

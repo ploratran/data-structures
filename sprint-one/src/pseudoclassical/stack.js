@@ -6,7 +6,6 @@ var Stack = function() {
   this.storage = {};
   this.stackSize = 0;
   this.index = 0;
-
 };
 
 // Define method using prototype:
@@ -28,5 +27,4 @@ Stack.prototype.pop = function(){
 Stack.prototype.size = function(){
   return this.stackSize;
 };
-
 

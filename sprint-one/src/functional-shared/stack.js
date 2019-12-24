@@ -22,7 +22,6 @@ var stackMethods = {};
 stackMethods.push = function(value) {
   this.storage[this.index++] = value;
   this.stackSize++;
-  return stackMethods;
 };
 stackMethods.pop = function() {
   if (this.stackSize > 0) {

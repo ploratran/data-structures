@@ -1,57 +1,56 @@
-var Tree = function (value) {
+var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
 
   // your code here
+  // newTree.children = null;  // fix me
+  newTree.children = []; // an array
 
-  newTree.children = [];  // fix me
+  // functional-shared:
   _.extend(newTree, treeMethods);
-
-  // console.log(newTree);
 
   return newTree;
 };
 
 var treeMethods = {};
 
-treeMethods.addChild = function (value) {
-  /**
-   * create a node
-   * assign the value to the node
-   * Assign child to the new node
-   */
-  // var i = 0;
-  var newNode = Tree(value);
-  this.children.push(newNode);
-  // i++
+treeMethods.addChild = function(value) {
+  // let node = new Tree(value);
+  let node = new Tree(value);
+  this.children.push(node);
 };
 
-treeMethods.contains = function (target) {
-  /**
-   * base case: if target === value {return true};
-   * base case: else if it does not have children,length === 0 {return false};
-   * else if it does have children send to recrussive function;
-   */
-  var num = 0
-  var node = this
+treeMethods.contains = function(target) {
 
-  var recurssion = function (node) {
+  // have variable flag to keep track of boolean: 
+  let flag = false;
 
-    if (node.value === target) {
-      return true
-    } else if (node.children.length === 0) {
-      return false
+  // define a recursion function
+  const recursion = (children, target) => {
+    // base case: if children is empty, return false
+    if (this.children.length === 0) {
+      flag = false;
     }
     else {
-
-      for (var i = 0; i < node.children.length; i++) {
-        return recurssion(node.children[i])
+      // loop through children: 
+      for (let i = 0; i < children.length; i++) {
+        console.log('children: ', children);     
+        // base case: check if value of children matches with target: 
+        if (children[i].value === target) {
+          flag = true;
+        } 
+        // recursion: 
+        recursion(children[i].children, target);
       }
+      return flag;
     }
+  }; 
 
-  }
-  return recurssion(node)
+  return recursion(this.children, target);
+
 };
+
+
 
 /*
  * Complexity: What is the time complexity of the above functions?

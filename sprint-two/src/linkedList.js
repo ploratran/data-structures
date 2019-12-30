@@ -3,70 +3,50 @@ var LinkedList = function() {
   list.head = null;
   list.tail = null;
 
-  //takes a value and adds it to the end of the list
-  /*should designate a new tail when new nodes are added*/
   list.addToTail = function(value) {
-    //create a node first with value
-    var node = new Node(value);
-    /*
-    List start with an empty node before create new nodes
-    If it's an empty node, head and tail points to the same node (empty node)
-    Then, assign head to the first node
-    */
-    if(list.head == null && list.tail == null){
+    let node = new Node(value);
+    // if only 1 node, head and tail point to same node
+    // only need to check if head is null:
+    if (list.head === null) {
       list.head = node;
       list.tail = node;
     }
-    /*
-    head is always point to the first node,
-    so tail is going to point to the next node until it's the last node,
-    then the node.next will be null because it's not point to any other node
-    */
-    list.tail.next = node;
-    list.tail = node;
-    //console.log(node);
+    // if there are more than 1 node, head is always the first node
+    // tail is the next node
+    // if node.next is null, tail is the last node:
+    else {
+      list.tail.next = node;
+      list.tail = node;
+    }
   };
 
   list.removeHead = function() {
-    /* @output: return a value
-    head is point to the first node,
-    when a node is deleted, head should point to the next node
-    !!!! node is not delete (in linked-list) but the head points to a different node
-    should have a variable = temp to hold the current head of node,
-    when node is delete, temp will be the new node
-    */
-    var temp = list.head.value;
+    // head is always available from addToTail()
+    // have variable temp to keep track of head
+    // head is not delete, but point to the next node
+    let temp = list.head;
     list.head = list.head.next;
-    return temp;
+    return temp.value;
   };
 
   list.contains = function(target) {
-    /*
-    @output: a boolean
-    make a variable currentNode that hold the current node the head is pointing at
-    while "true" (currentNode is equal to the current head):
-      currentNode's value is equal to the current head's value
-      check if currentNode's value == target:
-      if yes:
-        -> return true
-      if currentNode's value is NOT equal to target:
-        -> return false
-      then keep looking at the next node:
-        ->currentNode.next will point to the next node to access next node's value and compare
-    */
-    var currentNode = list.head; //assume head is currently an empty node of {null : null}
-
-    for (var i = 0; i < Infinity; i++) {
-
-      if (currentNode.value === target) {
+    // have variable temp to keep track of head of list: 
+    let temp = list.head;
+    // loop through 
+    // if list is not null: 
+    while (temp) {
+      // check if the current node value is equal to target:
+      if (temp.value === target) {
         return true
-      } else if (currentNode.next === null) {
-        return false
-      } else {
-        currentNode = currentNode.next
       }
+      // traverse to next node: 
+      // cannot use list.head.next because list.head is always the first node
+      temp = temp.next;
     }
+    // else return false:
+    return false;
   };
+
   return list;
 };
 
@@ -74,12 +54,12 @@ var Node = function(value) {
   var node = {};
 
   node.value = value;
-  node.next = null; //a reference
+  node.next = null;
 
   return node;
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
- --> O(n)
+ linear ==> O(n)
  */

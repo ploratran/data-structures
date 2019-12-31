@@ -34,7 +34,7 @@ treeMethods.contains = function(target) {
     else {
       // loop through children: 
       for (let i = 0; i < children.length; i++) {
-        console.log('children: ', children);     
+        // console.log('children: ', children);     
         // base case: check if value of children matches with target: 
         if (children[i].value === target) {
           flag = true;

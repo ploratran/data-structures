@@ -1,14 +1,16 @@
 var Set = function() {
   var set = Object.create(setPrototype);
   // set._storage = null; // fix me
-  set.storage = [];
+  // set.storage = [];
+  set.storage = {};
   return set;
 };
 
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  this.storage.push(item);
+  // this.storage.push(item);
+  this.storage[item] = true;
 };
 
 setPrototype.contains = function(item) {
@@ -21,11 +23,13 @@ setPrototype.contains = function(item) {
   // });
 
   // return flag;
-  return this.storage.includes(item);
+  // return this.storage.includes(item);
+  return this.storage.hasOwnProperty(item);
 };
 
 setPrototype.remove = function(item) {
-  this.storage.shift();
+  // this.storage.shift();
+  delete this.storage[item];
 };
 
 /*

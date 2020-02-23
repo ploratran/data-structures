@@ -32,7 +32,3 @@ var stackMethods = {
     return this.stackSize; 
   }
 };
-
-
-
-
